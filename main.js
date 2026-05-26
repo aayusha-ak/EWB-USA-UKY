@@ -4,16 +4,11 @@ function ShowHide() {
     if (menu) {
       menu.classList.toggle("show");
     }
-    //when a link is clicked, hide the menu
     
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll(".navLinks a");
+const API_KEY = 'AIzaSyArFiKLrSQxuGHBB_HQKvgJwS7-oNGn3UQ';
+const CALENDAR_ID = 'ewb.uky@gmail.com';
 
-  links.forEach(link => {
-    if (link.href === window.location.href) {
-      link.classList.add("active");
-    }
-  });
-});
+
+

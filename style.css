@@ -20,8 +20,7 @@ html {
   justify-content: space-between;
   padding-right : 15px;
   padding-left: 10px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+
   color : white;
   text-decoration: none;
   position:fixed;
@@ -33,11 +32,15 @@ html {
 
 }
 
-.ewblogo {
-  width: 200px;
-  
 
+.ewblogo img {
+  display:block;
+  height: 150px;
+  width:160px;
+  margin-top: -30px;
+  margin-bottom: -10px;
 }
+  
 
 .navLinks a {
   color : black;
@@ -80,6 +83,7 @@ a.active {
   width:100%;
   box-sizing: border-box;
   box-shadow: 0px 8px 10px -6px rgba(0,0,0,0.35);
+  padding-top: 17px;
 }
 
 
@@ -104,6 +108,7 @@ a.active {
   .navContainer {
    display: block;
    cursor:pointer;
+
    
    
   }
@@ -117,7 +122,7 @@ a.active {
   font-family: 'Podkova', serif;  
   background-color: #4e8aca;
   
-}
+  }
   .hamMenu.show {
     display:flex;
     flex-direction: column;
@@ -187,12 +192,7 @@ a.active {
 
 
 h1,h2 {
-  /*
-  margin:5px;
-  white-space: nowrap;
-  width: fit-content;
-  text-transform: uppercase;
-  */
+ 
   width: fit-content;
   color:black;
   text-transform: uppercase;
@@ -214,47 +214,58 @@ h1,h2 {
 /************************/
 /*Homepage about us section*/
 
-.homeHeading {
-  font-family: Radley, sans-serif;
-  font-size: 35px;
+.homeHeading{
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
   margin-top: 50px;
-  margin-left: 40px;
-  margin-right: 40px;
-  
-  
+  margin-left: 20px;
+  margin-bottom: 30px;
 }
 
 .aboutus{
+  margin-top: 60px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 40px;
-  margin-right: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap:40px;
 }
 
 .homeparagraph {
-  width:40%;
   word-wrap: break-word;
   font-family: 'Podkova', serif;
-  font-size: 20px;
+  font-size: 25px;
+  width: 80%;
+  height: fit-content;
+  text-align: center;
+  line-height: 1.5;
+  color:rgb(34, 34, 34)
  
-
 }
 
 .aboutgallery {
   display: grid;
-  grid-template-columns: repeat(2, 250px);
-  grid-template-rows: repeat(2, 250px);
+  grid-template-columns: repeat(5, 1fr);
+  gap:20px;
+  justify-content: center;
+  
 
 }
 
+
+
 /* image container */
 .aboutimage {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   overflow: hidden;
-  border-radius: 10px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+ 
+  
   
   
 }
@@ -265,42 +276,31 @@ h1,h2 {
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 10px;
+  
+
 }
 
 .imagecaption {
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  font-size: 18px;
+  color: Black;
+  font-size: 25px;
   font-family: Radley, sans-serif;
   text-align: center;
+  font-weight: bold;
+  
+  
+  
 }
 
 
-@media screen and (max-width: 980px) {
-
-  .aboutus {
-    flex-direction: column;
-
-  }
-
-  .homeparagraph {
-  width:100%;
-  word-wrap: break-word;
-
-  }
-
+@media screen and (max-width: 1350px) {
   .aboutgallery{
-    grid-template-columns: repeat(2, 205px);
-    grid-template-rows: repeat(2, 205px);
-    justify-content: center;
-    margin-top: 15px;
+    grid-template-columns: repeat(2, 1fr);
 
   }
 }
+  
 
 /************************/
 /*Homepage Current and Past Projects section*/
@@ -359,6 +359,7 @@ h1,h2 {
 .projectImage:hover {
   box-shadow: 0px 8px 20px rgba(0,0,0,0.35);
   transform: translateY(-10px);
+  
   .projectDetail {
     display: block;
 
@@ -457,7 +458,7 @@ h1,h2 {
 }
 
 
-.footer {
+.contribute {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -468,6 +469,11 @@ h1,h2 {
   
 
 }
+
+.footerHeadingOne {
+  margin-bottom:-10px;
+}
+  
 /* left and right sections */
 
 .donation {
@@ -535,7 +541,7 @@ h1,h2 {
   .donatelink{
     display:none;
   }
-  .footer {
+  .contribute {
     display: flex;
     flex-direction: column;
   }
@@ -579,42 +585,43 @@ h1,h2 {
 /************************/
 /*Events Page*/
 .eventGallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
   
-  
+
 }
 
 .polaroid {
-  width: 280px;
+  width: 200px;
   padding: 10px 10px 20px 10px;
   border: 1px solid #BFBFBF;
-  background-color: white;
-  box-shadow: 10px 10px 5px #aaaaaa;
+  background-color: rgb(241, 237, 237);
+  box-shadow: -1.5px 1.5px 5px #aaaaaa;
   text-align: center;
   font-family: 'Podkova', serif;
   color: black;
   transition:
-    transform 0.3s ease,
+    transform 0.1s ease,
     box-shadow 0.3s ease,
     filter 0.3s ease;
+  
+  font-size: 20px;
 }
 
-.rotate_right {
-  float: left;
-  transform: rotate(7deg);
-}
-
-.rotate_left {
-  float: left;
-  transform: rotate(-8deg);
+.polaroid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
   
 }
 
+
+
+
+
 .polaroid:hover {
-  cursor:pointer;
   transform:scale(1.05);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
   
@@ -622,10 +629,10 @@ h1,h2 {
     display: block;
   }
   .eventTitle {
-    font-size: 26px;
+    font-size: 20px;
   }
   .eventParagraph {
-    font-size: 18px;
+    font-size: 16px;
   }
   
 }
@@ -644,19 +651,114 @@ h1,h2 {
   
 }
 
-@media (max-width: 700px) {
-  .eventGallery {
-    justify-content: center;
 
-  }
-
-  .rotate_left {
-    float:none;
-
-  }
-  .rotate_right {
-    float:none;
-  }
-    
+/********/
+.involvedContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 40px;
+  margin-right: 40px;
+  
   
 }
+.involvedHeading {
+  font-family: 'League Spartan', serif;
+  text-transform: uppercase;
+  /*align heading to the center of the page*/
+  text-align: center;
+  width: 100%;
+  
+}
+.involvedParagraph {
+  font-family: 'Montserrat', serif;
+}
+
+
+
+.calendar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: 'League Spartan', serif;
+  font-size: 20px;
+
+}
+.calendarHeading {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  font-family: 'League Spartan', serif;
+  font-size: 30px;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  
+}
+
+
+/**********************/
+/*Footer Section*/
+.footer{
+  border-top: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  
+}
+
+.lastfooterHeading {
+  font-family: 'League Spartan', serif;
+  text-align:center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 19px;
+  margin:0;
+  
+}
+.connect img{
+  display:block;
+  height: 30px;
+  width:30px;
+}
+
+.connectSection{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+  align-items: center;
+  
+
+}
+
+.contactSection{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+  align-items: center;
+
+}
+
+.contactParagraph {
+  
+  font-family: 'League Spartan', serif;
+  font-size: 20px;
+  margin:0;
+  
+  
+}
+
+.lasttext {
+  font-family: 'League Spartan', serif;
+  text-align:center;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: black;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
