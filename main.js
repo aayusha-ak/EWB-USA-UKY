@@ -1,4 +1,5 @@
 
+//hamburger menu function, when the hamburger menu is clicked, the menu will appear, and when it is clicked again, the menu will disappear
 function ShowHide() {
     const menu = document.getElementById("hamMenu");
     if (menu) {
@@ -10,10 +11,9 @@ function ShowHide() {
       option.addEventListener("click", () => {
         menu.classList.remove("show");
       });
-    });
-    
-    
+    }); 
 }
+
 
 const API_KEY = 'AIzaSyArFiKLrSQxuGHBB_HQKvgJwS7-oNGn3UQ';
 const CALENDAR_ID = 'ewb.uky@gmail.com';
@@ -46,8 +46,6 @@ async function fetchEvents() {
             const eventDate = new Date(event.start.dateTime || event.start.date);
             date.textContent = `Date: ${eventDate.toLocaleDateString()} ${eventDate.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}`;
             eventElement.appendChild(date);
-
-    
 
             eventsContainer.appendChild(eventElement);
         });
