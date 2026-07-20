@@ -1,26 +1,32 @@
-html, body {
+html {
   scroll-behavior: smooth;
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
 }
 
-
-.navSection{
-  position:fixed;
+.homepage {
+  margin : 0;
 }
 
 /* navigation bar*/
+
 .topnav {
   overflow: hidden;
   align-items: center;
   display : flex;
   flex-direction: row;
-  justify-content: space-between;
   background-color: #4e8aca;
+  justify-content: space-between;
+  padding-right : 15px;
+  padding-left: 10px;
+
+  color : white;
+  text-decoration: none;
+  position:fixed;
+  top:0px;
+  z-index: 1000;
+  width:100%;
+  box-sizing: border-box;
   box-shadow: 0px 8px 20px rgba(0,0,0,0.35);
-  padding-right: 10px;
-  padding-left:10px; 
+
 }
 
 
@@ -58,23 +64,35 @@ a.active {
   color : white;
 }
 
+
+
+
+/**********************************************/
 /* code for hamburger icon for smaller screens*/
-/* do not display ham bar*/
+.menuIcon {
+  display: none;
+  width: 3px;
+  height: 3px;
+}
+
+.hamMenu {
+  display: none;
+  position:fixed;
+  top:85px;
+  z-index: 1000;
+  width:100%;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 10px -6px rgba(0,0,0,0.35);
+  padding-top: 17px;
+}
+
+
+
 .navContainer{
   display:none;
 }
 
-.hamMenu{
-  display:none;
-}
-
-
-@media screen and (max-width: 890px) {
-  .navLinks {
-    display: none;
-  }
-
-  .bar1, .bar2, .bar3 {
+.bar1, .bar2, .bar3 {
     width: 25px;
     height: 3px;
     background-color: white;
@@ -82,22 +100,15 @@ a.active {
     border-radius: 10px;
   }
 
-  /*display the ham bars*/
+@media screen and (max-width: 890px) {
+  .navLinks {
+    display: none;
+  }
+
   .navContainer {
    display: block;
    cursor:pointer;
   }
-
-  .hamMenu.show {
-  display:flex;
-  flex-direction: column;
-  position:fixed;
-  top: 110px;
-  z-index: 1000;
-  width:100%;
-  box-sizing: border-box;
-  box-shadow: 0px 8px 10px -6px rgba(0,0,0,0.35);
-}
     
   .hamMenu a {
   color: white;
@@ -109,7 +120,12 @@ a.active {
   background-color: #4e8aca;
   
   }
-  
+  .hamMenu.show {
+    display:flex;
+    flex-direction: column;
+    
+  }
+
   .hamLink:hover {
     background-color: white;
     color : #4e8aca;
@@ -117,39 +133,41 @@ a.active {
 }
 
 
-
-
-
-
-
-
-
-
-/* Title section*/
-.titleSection {
-  position: relative;
+/****************************/
+/*Main Photo in the homePage*/
+.home_after_navbar {
+  position:relative;
+  display:flex;
+  margin-top: 84px;
 }
 
-.titlePhoto {
+.introPhoto{
+  display:flex;
+  justify-content: center;
+}
+
+
+.homeMainPhoto {
+  display: flex;
   height: 500px;
   width: 100%; 
   object-fit: cover;
-  display: block;
 }
 
-.title {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+
+
+.homeTitle {
   display:flex;
   flex-direction: column;
+  position: absolute;
   color: black;
   background-color: rgb(255, 255, 255, 0.3);
   width: fit-content;
-  z-index: 2;
-  font-family: 'Playfair Display', serif ;
+  left:50%;
+  transform: translateX(-50%);
+  font-family: Playfair Display, serif ;
   border-radius: 10px;
+  margin-top:10px;
   justify-content: center;
   align-items: center;
   padding:10px;
@@ -175,13 +193,22 @@ a.active {
 }
 
 
-.titleCaption {
-  color:black;
+
+.homecaption {
+  color: black;
   margin-top: 5px;
   margin-right:5px;
   text-align: right;
-  font-family: 'Montserrat', serif;
+  font-family: Montserrat, serif;
   text-transform: uppercase;
+  
+}
+
+
+@media screen and (max-width: 530px) {
+  .homecaption{
+    color:red;
+  }
   
 }
 
@@ -191,15 +218,34 @@ a.active {
 
 
 
+/************************/
+/* about us section*/
 
+.homeHeading{
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
 
+.aboutus{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap:40px;
+}
 
-/* About Us Section */
-.aboutParagraph {
+.homeparagraph {
+  word-wrap: break-word;
   font-family: 'Podkova', serif;
   font-size: 25px;
-  margin-left: 30px;
-  margin-right:30px;
+  width: 80%;
   height: fit-content;
   text-align: center;
   line-height: 1.5;
@@ -209,13 +255,18 @@ a.active {
 
 .aboutgallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: repeat(5, 1fr);
   gap:20px;
   justify-content: center;
+  
+
 }
 
 /* image container */
 .aboutimage {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -233,45 +284,48 @@ a.active {
   width: 100%;
   color: Black;
   font-size: 25px;
-  font-family: 'Radley', sans-serif;
+  font-family: Radley, sans-serif;
   text-align: center;
   font-weight: bold;
 }
 
 
+@media screen and (max-width: 1350px) {
+  .aboutgallery{
+    grid-template-columns: repeat(2, 1fr);
 
-
-
-
-
-
-
-
-/** Past Projects Section **/
-.heading{
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  text-align: center;
-  text-transform: uppercase;
-  margin-top: 50px;
-  margin-left: 20px;
-  margin-bottom: 30px;
+  }
 }
+  
 
-.projectGallery {
-  margin-top: 50px;
-  font-family: "Podkova", serif;
+
+
+
+/************************/
+/*Current and Past Projects section*/
+
+.homeproject_gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 450px);
-  gap:20px;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  gap: 20px;
+
   justify-content: center;
-  overflow-x: hidden;
+
+  margin-top: 50px;
+
+  font-family: "Podkova", serif;
 }
 
 .projectImage {
   position: relative;
+
+  width: 400px;
+  height: 240px;
+
   overflow: hidden;
   border-radius: 12px;
+
   transition: 0.3s ease;
 }
 
@@ -279,6 +333,7 @@ a.active {
 .projectImage img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   display: block;
   transition-duration: 0.3s;
@@ -288,10 +343,13 @@ a.active {
 .projectCaption {
   position: absolute;
   bottom: 0;
+
   width: 100%;
   padding: 12px;
+
   background: rgba(0, 0, 0, 0.6);
   color: white;
+
   text-align: center;
   font-size: 18px;
 }
@@ -327,146 +385,10 @@ a.active {
   box-sizing: border-box;
 }
 
-
-
-
-
-
-
-
-/*Events Section*/
-/*calendar section*/ 
-.calendar {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  font-family: 'League Spartan', serif;
-  font-size: 20px;
-  overflow-x: hidden;
-
-}
-.calendarHeading {
-  display: flex;
-  margin-top: 20px;
-  justify-content: center;
-  font-family: 'League Spartan', serif;
-  font-size: 30px;
-  align-items: center;
-  color: black;
-  font-weight: bold;
-  
-}
-
-.calendar iframe {
-    width: 100%;
-    max-width: 1000px;
-    height: 600px;
-   
-}
-
-.upcomingEvent {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-  border: 3px solid black;
-  border-radius: 10px;
-  border-style:dashed;
-  padding: 20px;
-  width: 50%;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  
-}
-
-.upcomingEventHeading {
-  font-family: 'Podkova', serif;
-  text-transform: uppercase;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-.thisweekSection {
-  font-family: 'Podkova', serif;
-  font-size: 25px;
-  
-}
-
-/*polariod section*/
-.polaroidTitle {
-  font-family: 'Podkova', serif;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 28px;
-  margin-bottom: 30px;
-}
-.eventGallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  
-
-}
-
-.polaroid {
-  width: 200px;
-  padding: 10px 10px 20px 10px;
-  border: 1px solid #BFBFBF;
-  background-color: rgb(241, 237, 237);
-  box-shadow: -1.5px 1.5px 5px #aaaaaa;
-  text-align: center;
-  font-family: 'Podkova', serif;
-  color: black;
-  transition:
-    transform 0.1s ease,
-    box-shadow 0.3s ease,
-    filter 0.3s ease;
-  
-  font-size: 20px;
-  position: relative;
-}
-
-.polaroid img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  
-}
-
-.polaroid:hover {
-  transform:scale(1.05);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
-  /*
-  .eventDetail {
-    display: block;
+@media screen and (max-width: 980px) {
+  .homeproject_gallery {
+    grid-template-columns: repeat(1, 400px);
   }
-  .eventTitle {
-    font-size: 20px;
-  }
-  .eventParagraph {
-    font-size: 16px;
-  }
-  .pin {
-    background-color: rgb(10, 10, 86);
-    z-index: 10;
-    transform: translateX(-50%) scale(1.2);
-    display: block;
-  }
-    */
-  
-}
-
-.eventDetail {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: black;
-  padding: 20px;
-  box-sizing: border-box;
   
 }
 
@@ -475,36 +397,10 @@ a.active {
 
 
 
+/************************/
+/*Support section*/
 
-.involvedContent {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: 40px;
-  margin-right: 40px;
-  
-  
-}
-.involvedHeading {
-  font-family: 'League Spartan', serif;
-  text-transform: uppercase;
-  /*align heading to the center of the page*/
-  text-align: center;
-  width: 100%;
-  
-}
-.involvedParagraph {
-  font-family: 'Montserrat', serif;
-}
-
-
-
-
-
-
-
-/*support Section*/
-.support{
+.supportSection {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -515,7 +411,6 @@ a.active {
   font-family: 'Podkova', serif; 
   font-family: Podkova;
   align-items: center;
-  overflow-wrap: break-word;
   
 }
 
@@ -548,9 +443,7 @@ a.active {
 
 
 
-
-
-
+/************************/
 /*Ways to contribute section*/
 
 .wtc {
@@ -683,6 +576,171 @@ a.active {
 
 
 
+
+
+
+/************************/
+/*Events Page*/
+.polaroidTitle {
+  font-family: 'Podkova', serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+.eventGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  
+
+}
+
+.polaroid {
+  width: 200px;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: rgb(241, 237, 237);
+  box-shadow: -1.5px 1.5px 5px #aaaaaa;
+  text-align: center;
+  font-family: 'Podkova', serif;
+  color: black;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+  
+  font-size: 20px;
+  position: relative;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  
+}
+
+.polaroid:hover {
+  transform:scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+  /*
+  .eventDetail {
+    display: block;
+  }
+  .eventTitle {
+    font-size: 20px;
+  }
+  .eventParagraph {
+    font-size: 16px;
+  }
+  .pin {
+    background-color: rgb(10, 10, 86);
+    z-index: 10;
+    transform: translateX(-50%) scale(1.2);
+    display: block;
+  }
+    */
+  
+}
+
+.eventDetail {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  padding: 20px;
+  box-sizing: border-box;
+  
+}
+
+
+
+/************************/
+/*Involved Page*/
+.involvedContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 40px;
+  margin-right: 40px;
+  
+  
+}
+.involvedHeading {
+  font-family: 'League Spartan', serif;
+  text-transform: uppercase;
+  /*align heading to the center of the page*/
+  text-align: center;
+  width: 100%;
+  
+}
+.involvedParagraph {
+  font-family: 'Montserrat', serif;
+}
+
+
+
+.upcomingEvent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  border-style:dashed;
+  padding: 20px;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  
+}
+
+.upcomingEventHeading {
+  font-family: 'Podkova', serif;
+  text-transform: uppercase;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.thisweekSection {
+  font-family: 'Podkova', serif;
+  font-size: 25px;
+}
+
+/*calendar section*/
+.calendar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: 'League Spartan', serif;
+  font-size: 20px;
+
+}
+.calendarHeading {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  font-family: 'League Spartan', serif;
+  font-size: 30px;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  
+}
+
+.calendar iframe {
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+}
+
+
+/**********************/
 /*Footer Section*/
 .footer{
   border-top: 1px solid black;
@@ -747,22 +805,4 @@ a.active {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
 
