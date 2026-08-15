@@ -1,4 +1,4 @@
-# EWB-USA-UKY Website
+# EWB-USA at UKY Website
 Student made website for the Engineers Without Borders at the University of Kentucky
 
 This website was created to help students learn more about our chapter. It also serves as a resource for future donors and professional engineers interested in supporting or working with our chapter.
