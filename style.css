@@ -88,7 +88,7 @@ a.active {
 }
 
 
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 975px) {
   .navLinks {
     display: none;
   }
